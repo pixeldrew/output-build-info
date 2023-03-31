@@ -8,7 +8,7 @@ Shell tool to write ci-info from GHA, JENKINS, TRAVIS_CI info into json file. Ca
 output .build-info.json to root of package
 
 ```shell
-$ npx --no @pixeldrew/output-build-info -h
+$ npx @pixeldrew/output-build-info -h
 
 Usage: output-build-info -f [filename] -d [directory]
 
@@ -18,6 +18,6 @@ Options:
   -h, --help       Show help                                           [boolean]
   -d, --directory      [default: `cwd`]
 
-$ npx --no @pixeldrew/output-build-info
+$ npx @pixeldrew/output-build-info
 Wrote build-info to /app/.build-info.json
 ```
