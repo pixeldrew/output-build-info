@@ -18,6 +18,8 @@ import {
   showBuildInfo,
 } from "@pixeldrew/output-build-info/middleware.js";
 
+// or const { addBuildInfo, showBuildInfo} = require('@pixeldrew/output-build-info/middleware.cjs');
+
 const app = new express();
 
 app.use(addBuildInfo());

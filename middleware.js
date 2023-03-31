@@ -1,4 +1,4 @@
-import { readPackageUp } from "read-pkg-up";
+import readPackageUp from "read-pkg-up";
 import { readFile } from "fs/promises";
 import { dirname, sep } from "path";
 
