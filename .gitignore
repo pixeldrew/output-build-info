@@ -1,4 +1,4 @@
 node_modules
 .idea/
-.buildinfo.json
+.build-info.json
 *.cjs

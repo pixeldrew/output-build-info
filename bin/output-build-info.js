@@ -9,7 +9,8 @@ import { sep } from "path";
 import { execFileSync } from "child_process";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { DEFAULT_FILENAME } from "../middleware.js";
+
+export const DEFAULT_FILENAME = ".build-info.json";
 
 const git = (arg) =>
   execFileSync(`git`, arg.split(" ")).toString("utf8").trim();

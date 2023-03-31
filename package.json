@@ -1,22 +1,20 @@
 {
   "name": "@pixeldrew/output-build-info",
   "version": "0.0.0-development",
-  "description": "shell tool to output ci, build and vcs info from GHA, JENKINS, TRAVIS_CI falling back to git. Includes express middleware for output",
+  "description": "shell tool to output ci, build and vcs info from GHA, JENKINS, TRAVIS_CI falling back to git.",
   "type": "module",
-  "main": "middleware.js",
   "bin": {
     "@pixeldrew/output-build-info": "bin/output-build-info.js"
   },
   "private": false,
   "scripts": {
-    "build": "babel middleware.js --out-file middleware.cjs",
     "test": "echo \"no tests yet\" && exit 0",
-    "prepare": "npm run build && husky install"
+    "prepare": "husky install"
+  },
+  "engines": {
+    "node": ">14.0.0"
   },
   "files": [
-    "./index.js",
-    "./middleware.js",
-    "./middleware.cjs",
     "./bin/output-build-info.js"
   ],
   "publishConfig": {
@@ -52,16 +50,12 @@
   },
   "homepage": "https://github.com/pixeldrew/output-build-info#readme",
   "devDependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "2.8.7",
     "semantic-release": "^21.0.0"
   },
   "dependencies": {
-    "read-pkg-up": "^7.0.1",
     "yargs": "^17.7.1"
   }
 }

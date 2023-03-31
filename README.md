@@ -1,37 +1,23 @@
 ## output build info
 
-Shell tool to write ci-info from GHA, JENKINS, TRAVIS_CI info into json file. Includes express middleware helpers to output
+Shell tool to write ci-info from GHA, JENKINS, TRAVIS_CI info into json file. Can be used in conjunction with
+[@pixeldrew/build-info](https://www.npmjs.com/package/@pixeldrew/build-info) to output this file via express
 
 ## usage:
 
-output .buildinfo.json to root of package
+output .build-info.json to root of package
 
 ```shell
-$ npx @pixeldrew/output-build-info
-Wrote build-info to /app/.buildinfo.json
-```
+$ npx --no @pixeldrew/output-build-info -h
 
-```javascript
-import express from "express";
-import {
-  addBuildInfo,
-  showBuildInfo,
-} from "@pixeldrew/output-build-info/middleware.js";
+Usage: output-build-info -f [filename] -d [directory]
 
-// or const { addBuildInfo, showBuildInfo} = require('@pixeldrew/output-build-info/middleware.cjs');
+Options:
+      --version    Show version number                                 [boolean]
+  -f, --file       Output directory                 [default: ".build-info.json"]
+  -h, --help       Show help                                           [boolean]
+  -d, --directory      [default: `cwd`]
 
-const app = new express();
-
-app.use(addBuildInfo());
-app.get("/.build-info", showBuildInfo);
-
-app.get("/build", (req, res) => {
-  const buildInfo = req.app.get("build-info");
-
-  res.send(`${buildInfo.version} ${buildInfo.name} ${buildInfo.sha}`);
-});
-
-app.listen(3000, () => {
-  console.log(`I'm http on port 3000`);
-});
+$ npx --no @pixeldrew/output-build-info
+Wrote build-info to /app/.build-info.json
 ```
