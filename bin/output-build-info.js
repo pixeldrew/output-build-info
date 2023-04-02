@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 /**
  * Outputs VCS & CI info to json file
@@ -37,9 +37,12 @@ const branch =
   env.GITHUB_REF_NAME ??
   env.GIT_BRANCH ??
   env.TRAVIS_BRANCH ??
-  git(`rev-parse --abbrev-ref HEAD`);
+  git("rev-parse --abbrev-ref HEAD");
 const build =
-  env.GITHUB_JOB ?? env.BUILD_NUMBER ?? env.TRAVIS_BUILD_NUMBER ?? "UNKNOWN";
+  env.GITHUB_RUN_NUMBER ??
+  env.BUILD_NUMBER ??
+  env.TRAVIS_BUILD_NUMBER ??
+  "UNKNOWN";
 
 try {
   await writeFile(
@@ -57,5 +60,5 @@ try {
 
   console.log(`Wrote build-info to ${filename}`);
 } catch (e) {
-  console.error(`could not write ${filename} ${e}`);
+  console.error(`Could not write ${filename} ${e}`);
 }
